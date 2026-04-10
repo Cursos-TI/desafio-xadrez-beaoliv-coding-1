@@ -1,11 +1,7 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+int main(){
 
-int main() {
-    
     int direcao, casa, i;
 
     // =============================
@@ -185,16 +181,442 @@ int main() {
     return 0;
 }
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+#include <stdio.h>
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+int main(){
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    int direcao, casa, i;
 
+    // =============================
+    //           TORRE
+    // =============================
+    printf("=============================\n");
+    printf("         PECA (TORRE)        \n");
+    printf("=============================\n\n");
+    printf("1. ESQUERDA\n");
+    printf("2. DIREITA\n");
+    printf("3. CIMA\n");
+    printf("4. BAIXO\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
 
+    if(direcao < 1 || direcao > 4){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
 
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+
+    i = 1;
+    do {
+        switch(direcao){
+            case 1: printf("ESQUERDA - Casa %d\n", i); break;
+            case 2: printf("DIREITA - Casa %d\n", i);  break;
+            case 3: printf("CIMA - Casa %d\n", i);     break;
+            case 4: printf("BAIXO - Casa %d\n", i);    break;
+        }
+        i++;
+    } while(i <= casa);
+
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    // =============================
+    //           BISPO
+    // =============================
+    printf("\n=============================\n");
+    printf("         PECA (BISPO)        \n");
+    printf("=============================\n\n");
+    printf("1. DIAGONAL SUPERIOR ESQUERDA\n");
+    printf("2. DIAGONAL SUPERIOR DIREITA\n");
+    printf("3. DIAGONAL INFERIOR ESQUERDA\n");
+    printf("4. DIAGONAL INFERIOR DIREITA\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
+
+    if(direcao < 1 || direcao > 4){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+
+    i = 0;
+    switch(direcao){
+        case 1:
+            while(i < casa){
+                printf("CIMA + ESQUERDA - Casa %d\n", i + 1);
+                i++;
+            }
+            break;
+        case 2:
+            while(i < casa){
+                printf("CIMA + DIREITA - Casa %d\n", i + 1);
+                i++;
+            }
+            break;
+        case 3:
+            while(i < casa){
+                printf("BAIXO + ESQUERDA - Casa %d\n", i + 1);
+                i++;
+            }
+            break;
+        case 4:
+            while(i < casa){
+                printf("BAIXO + DIREITA - Casa %d\n", i + 1);
+                i++;
+            }
+            break;
+        default:
+            printf("OPCAO INVALIDA!\n");
+            break;
+    }
+
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    // =============================
+    //           RAINHA
+    // =============================
+    printf("\n=============================\n");
+    printf("        PECA (RAINHA)        \n");
+    printf("=============================\n\n");
+    printf("1. ESQUERDA\n");
+    printf("2. DIREITA\n");
+    printf("3. CIMA\n");
+    printf("4. BAIXO\n");
+    printf("5. DIAGONAL SUPERIOR ESQUERDA\n");
+    printf("6. DIAGONAL SUPERIOR DIREITA\n");
+    printf("7. DIAGONAL INFERIOR ESQUERDA\n");
+    printf("8. DIAGONAL INFERIOR DIREITA\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
+
+    if(direcao < 1 || direcao > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+
+    switch(direcao){
+        case 1:
+            for(int j = 1; j <= casa; j++)
+                printf("ESQUERDA - Casa %d\n", j);
+            break;
+        case 2:
+            for(int j = 1; j <= casa; j++)
+                printf("DIREITA - Casa %d\n", j);
+            break;
+        case 3:
+            for(int j = 1; j <= casa; j++)
+                printf("CIMA - Casa %d\n", j);
+            break;
+        case 4:
+            for(int j = 1; j <= casa; j++)
+                printf("BAIXO - Casa %d\n", j);
+            break;
+        case 5:
+            for(int j = 1; j <= casa; j++)
+                printf("CIMA + ESQUERDA - Casa %d\n", j);
+            break;
+        case 6:
+            for(int j = 1; j <= casa; j++)
+                printf("CIMA + DIREITA - Casa %d\n", j);
+            break;
+        case 7:
+            for(int j = 1; j <= casa; j++)
+                printf("BAIXO + ESQUERDA - Casa %d\n", j);
+            break;
+        case 8:
+            for(int j = 1; j <= casa; j++)
+                printf("BAIXO + DIREITA - Casa %d\n", j);
+            break;
+        default:
+            printf("OPCAO INVALIDA!\n");
+            break;
+    }
+
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+     // =============================
+    //           CAVALO
+    // Movimento fixo em L:
+    // 2 casas para baixo + 1 para esquerda
+    // FOR aninhado com WHILE
+    // =============================
+    printf("\n=============================\n");
+    printf("        PECA (CAVALO)        \n");
+    printf("=============================\n\n");
+
+    printf("MOVIMENTO: 2 CASAS PARA BAIXO + 1 PARA ESQUERDA\n\n");
+    printf("EFETUANDO MOVIMENTO...\n\n");
+
+    // FOR externo → percorre as 2 casas para baixo
+    // WHILE interno → imprime cada casa
+    for(int k = 1; k <= 2; k++){
+        int passo = 1;
+        while(passo <= 1){
+            printf("BAIXO - Casa %d\n", k);
+            passo++;
+        }
+    }
+
+    // 1 casa para esquerda
+    for(int k = 1; k <= 1; k++){
+        int passo = 1;
+        while(passo <= 1){
+            printf("ESQUERDA - Casa %d\n", k);
+            passo++;
+        }
+    }
+
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    return 0;
+}
+#include <stdio.h>
+
+// =============================
+// FUNÇÃO RECURSIVA - TORRE
+// Move em linha reta
+// =============================
+void moverTorre(int casas, int direcao){
+    if(casas == 0) return; // caso-base
+
+    switch(direcao){
+        case 1: printf("Esquerda\n"); break;
+        case 2: printf("Direita\n");  break;
+        case 3: printf("Cima\n");     break;
+        case 4: printf("Baixo\n");    break;
+    }
+
+    moverTorre(casas - 1, direcao); // chama com 1 casa a menos
+}
+
+// =============================
+// FUNÇÃO RECURSIVA - BISPO
+// Move na diagonal
+// Loop externo (vertical) + loop interno (horizontal)
+// =============================
+void moverBispo(int casas, int direcao){
+    if(casas == 0) return; // caso-base
+
+    // loop externo → vertical
+    for(int vertical = 1; vertical <= 1; vertical++){
+        // loop interno → horizontal
+        for(int horizontal = 1; horizontal <= 1; horizontal++){
+            switch(direcao){
+                case 1:
+                    printf("Cima\n");
+                    printf("Esquerda\n");
+                    break;
+                case 2:
+                    printf("Cima\n");
+                    printf("Direita\n");
+                    break;
+                case 3:
+                    printf("Baixo\n");
+                    printf("Esquerda\n");
+                    break;
+                case 4:
+                    printf("Baixo\n");
+                    printf("Direita\n");
+                    break;
+            }
+        }
+    }
+
+    moverBispo(casas - 1, direcao); // chama com 1 casa a menos
+}
+
+// =============================
+// FUNÇÃO RECURSIVA - RAINHA
+// Move em qualquer direção
+// =============================
+void moverRainha(int casas, int direcao){
+    if(casas == 0) return; // caso-base
+
+    switch(direcao){
+        case 1: printf("Esquerda\n");         break;
+        case 2: printf("Direita\n");          break;
+        case 3: printf("Cima\n");             break;
+        case 4: printf("Baixo\n");            break;
+        case 5:
+            printf("Cima\n");
+            printf("Esquerda\n");
+            break;
+        case 6:
+            printf("Cima\n");
+            printf("Direita\n");
+            break;
+        case 7:
+            printf("Baixo\n");
+            printf("Esquerda\n");
+            break;
+        case 8:
+            printf("Baixo\n");
+            printf("Direita\n");
+            break;
+    }
+
+    moverRainha(casas - 1, direcao); // chama com 1 casa a menos
+}
+
+// =============================
+//           MAIN
+// =============================
+int main(){
+
+    int direcao, casa;
+
+    // =============================
+    //           TORRE
+    // =============================
+    printf("=============================\n");
+    printf("         PECA (TORRE)        \n");
+    printf("=============================\n\n");
+    printf("1. ESQUERDA\n");
+    printf("2. DIREITA\n");
+    printf("3. CIMA\n");
+    printf("4. BAIXO\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
+
+    if(direcao < 1 || direcao > 4){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+    moverTorre(casa, direcao);
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    // =============================
+    //           BISPO
+    // =============================
+    printf("\n=============================\n");
+    printf("         PECA (BISPO)        \n");
+    printf("=============================\n\n");
+    printf("1. DIAGONAL SUPERIOR ESQUERDA\n");
+    printf("2. DIAGONAL SUPERIOR DIREITA\n");
+    printf("3. DIAGONAL INFERIOR ESQUERDA\n");
+    printf("4. DIAGONAL INFERIOR DIREITA\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
+
+    if(direcao < 1 || direcao > 4){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+    moverBispo(casa, direcao);
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    // =============================
+    //           RAINHA
+    // =============================
+    printf("\n=============================\n");
+    printf("        PECA (RAINHA)        \n");
+    printf("=============================\n\n");
+    printf("1. ESQUERDA\n");
+    printf("2. DIREITA\n");
+    printf("3. CIMA\n");
+    printf("4. BAIXO\n");
+    printf("5. DIAGONAL SUPERIOR ESQUERDA\n");
+    printf("6. DIAGONAL SUPERIOR DIREITA\n");
+    printf("7. DIAGONAL INFERIOR ESQUERDA\n");
+    printf("8. DIAGONAL INFERIOR DIREITA\n\n");
+    printf("ESCOLHA UMA DIRECAO: ");
+    scanf("%d", &direcao);
+
+    if(direcao < 1 || direcao > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("ESCOLHA A QUANTIDADE DE CASAS (1 a 8): ");
+    scanf("%d", &casa);
+
+    if(casa < 1 || casa > 8){
+        printf("OPCAO INVALIDA!\n");
+        return 0;
+    }
+
+    printf("\nEFETUANDO MOVIMENTO...\n\n");
+    moverRainha(casa, direcao);
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    // =============================
+    //           CAVALO
+    // 2 casas para cima + 1 para direita
+    // LOOPS ANINHADOS COMPLEXOS
+    // múltiplas variáveis + break + continue
+    // =============================
+    printf("\n=============================\n");
+    printf("        PECA (CAVALO)        \n");
+    printf("=============================\n\n");
+    printf("MOVIMENTO: 2 CASAS PARA CIMA + 1 PARA DIREITA\n\n");
+    printf("EFETUANDO MOVIMENTO...\n\n");
+
+    int cima    = 2;
+    int direita = 1;
+
+    // loop aninhado com múltiplas variáveis
+    for(int i = 1, j = 1; i <= cima || j <= direita; i++, j++){
+
+        if(i <= cima){
+            printf("Cima\n");
+        } else {
+            continue; // pula se já completou as casas para cima
+        }
+
+        if(i == cima && j <= direita){
+            printf("Direita\n");
+            break; // para após mover para direita
+        }
+    }
+
+    printf("\nMOVIMENTO EFETUADO!\n");
+
+    return 0;
+}
